@@ -1,0 +1,27 @@
+{
+  "name": "be-nc-news",
+  "version": "1.0.0",
+  "description": "be-film-review",
+  "main": "index.js",
+  "scripts": {
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "seed": "NODE_ENV=test knex seed:run",
+    "migrate-make": "knex migrate:make",
+    "migrate-latest": "NODE_ENV=test knex migrate:latest",
+    "migrate-rollback": "NODE_ENV=test knex migrate:rollback",
+    "seed:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex seed:run",
+    "migrate-latest:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:latest",
+    "migrate-rollback:prod": "NODE_ENV=production DB_URL=$(heroku config:get DATABASE_URL) knex migrate:rollback",
+    "start": "node listen.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.19.5",
+    "nodemon": "^1.19.4",
+    "pg": "^7.18.2"
+  }
+}
