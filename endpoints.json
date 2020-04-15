@@ -1,0 +1,47 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "GET /api/reviews": {
+    "description": "serves an array of all reviews",
+    "queries": [],
+    "exampleResponse": {
+      "review": [
+        {
+          "title": "Avengers: Endgame",
+          "body": "Incredible",
+          "rating": 5
+        }
+      ]
+    }
+  },
+  "POST /api/reviews": {
+    "description": "adds a new film review",
+    "exampleRequest": {
+      "key": 4,
+      "title": "Avengers: Endgame",
+      "body": "Incredible",
+      "rating": 5
+    }
+  },
+  "PATCH /api/reviews/:review_key": {
+    "description": "allows you to alter rating of a film",
+    "exapleRequest": {
+      "rating": 4
+    },
+    "exampleResponse": {
+      "review": {
+        "key": 1,
+        "title": "Avengers: Endgame",
+        "body": "Incredible",
+        "rating": 4
+      }
+    }
+  },
+  "DELETE /api/reviews/:review_key": {
+    "description": "deletes review given review_key",
+    "exampleResponse": {
+      "status": 204
+    }
+  }
+}
